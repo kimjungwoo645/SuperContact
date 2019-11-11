@@ -30,7 +30,8 @@ public class DetailViewManager : ViewManager
     [SerializeField] InputField phoneNumberInputField;
     [SerializeField] InputField emailInputField;
     [SerializeField] Button saveButton;
-    [SerializeField] GameObject thirdViewPrefab;
+    [SerializeField] GameObject addPhotoPopupViewPrefab;
+    [SerializeField] Image profilePhotoImage;
 
     public delegate void DetailViewManagerSaveDelegate(Contact contact);
     public DetailViewManagerSaveDelegate saveDelegate;
@@ -73,7 +74,6 @@ public class DetailViewManager : ViewManager
     {
         // Title 지정
         title = "상세화면";
-
         // Add 버튼 지정
         rightNavgationViewButton = Instantiate(buttonPrefab).GetComponent<SCButton>();
         rightNavgationViewButton.SetTitle("편집");
