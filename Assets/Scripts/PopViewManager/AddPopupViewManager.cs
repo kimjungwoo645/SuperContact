@@ -31,7 +31,6 @@ public class AddPopupViewManager : PopupViewManager
     protected override void Awake()
     {
         base.Awake();
-        Debug.Log("자식의 Start()");
     }
 
     private void OnEnable()
