@@ -30,8 +30,8 @@ public class DetailViewManager : ViewManager
     [SerializeField] InputField phoneNumberInputField;
     [SerializeField] InputField emailInputField;
     [SerializeField] Button saveButton;
-    [SerializeField] GameObject addPhotoPopupViewPrefab;
-    [SerializeField] Image profilePhotoImage;
+
+    [SerializeField] ImageButton profilePhotoImageButton;
 
     public delegate void DetailViewManagerSaveDelegate(Contact contact);
     public DetailViewManagerSaveDelegate saveDelegate;
@@ -51,6 +51,8 @@ public class DetailViewManager : ViewManager
         phoneNumberInputField.SetImmutable(editMode);
         emailInputField.SetImmutable(editMode);
 
+        profilePhotoImageButton.Editable = editMode;
+
         if (editMode)
         {
             rightNavgationViewButton.SetTitle("취소");
@@ -66,6 +68,9 @@ public class DetailViewManager : ViewManager
                 nameInputField.text = contactValue.name;
                 phoneNumberInputField.text = contactValue.phoneNumber;
                 emailInputField.text = contactValue.email;
+
+                //사진도 출력
+                profilePhotoImageButton.Image = SpriteManager.GetSprite(contactValue.profilePhotoFileName);
             }
         }
     }
@@ -103,6 +108,7 @@ public class DetailViewManager : ViewManager
         newContact.name = nameInputField.text;
         newContact.phoneNumber = phoneNumberInputField.text;
         newContact.email = emailInputField.text;
+        newContact.profilePhotoFileName = profilePhotoImageButton.Image.name;
 
         saveDelegate?.Invoke(newContact);
 
