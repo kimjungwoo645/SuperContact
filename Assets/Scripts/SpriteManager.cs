@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SpriteManager : MonoBehaviour
 {
-    private static Dictionary<string, Sprite> cachedSprites
-        = new Dictionary<string, Sprite>();
+    private static Dictionary<string, Sprite> cachedSprites = new Dictionary<string, Sprite>();
 
     public static Sprite[] Load()
     {

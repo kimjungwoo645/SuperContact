@@ -12,7 +12,8 @@ public class AddPhotoPopupViewManager : PopupViewManager
 
     public Action<Sprite> didSelectImage;
 
-    protected override void Awake() {
+    protected override void Awake() 
+    {
         base.Awake();
 
         // Sprite 불러와서 ImageCell 만들기
@@ -36,7 +37,7 @@ public class AddPhotoPopupViewManager : PopupViewManager
             GameObject imageCellObject = Instantiate(baseImageCell, scrollRect.content);
             ImageCell imageCell = imageCellObject.GetComponent<ImageCell>();
             imageCell.SetImageCell(sprite, (selectedSprite) => {
-
+                
                 didSelectImage?.Invoke(selectedSprite);
 
                 Close();
